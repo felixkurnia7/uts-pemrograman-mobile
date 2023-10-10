@@ -62,10 +62,9 @@ enum class SunflowerPage(
     @StringRes val titleResId: Int,
     @DrawableRes val drawableResId: Int
 ) {
-    PLANT_LIST(R.string.plant_list_title, R.drawable.ic_plant_list_active),
-    FLOWER_LIST(R.string.flower_list_title, R.drawable.ic_plant_list_active),
-    FRUIT_LIST(R.string.fruit_list, R.drawable.ic_plant_list_active),
+
     MY_GARDEN(R.string.my_garden_title, R.drawable.ic_my_garden_active),
+    PLANT_LIST(R.string.plant_list_title, R.drawable.ic_plant_list_active),
 }
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
@@ -136,7 +135,7 @@ fun HomePagerScreen(
 
         // Pages
         HorizontalPager(
-            modifier = Modifier.background(MaterialTheme.colorScheme.background),
+            modifier = Modifier.background(MaterialTheme.colorScheme.inversePrimary),
             pageCount = pages.size,
             state = pagerState,
             verticalAlignment = Alignment.Top
@@ -156,20 +155,6 @@ fun HomePagerScreen(
                 }
 
                 SunflowerPage.PLANT_LIST -> {
-                    PlantListScreen(
-                        onPlantClick = onPlantClick,
-                        modifier = Modifier.fillMaxSize(),
-                    )
-                }
-
-                SunflowerPage.FLOWER_LIST -> {
-                    PlantListScreen(
-                        onPlantClick = onPlantClick,
-                        modifier = Modifier.fillMaxSize(),
-                    )
-                }
-
-                SunflowerPage.FRUIT_LIST -> {
                     PlantListScreen(
                         onPlantClick = onPlantClick,
                         modifier = Modifier.fillMaxSize(),
